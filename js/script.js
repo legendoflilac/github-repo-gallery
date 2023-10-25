@@ -64,7 +64,7 @@ const getRepoInfo = async function(repoName) {
     const req = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await req.json();
     console.log(repoInfo);
-    const fetchLanguages = await fetch(`https://api.github.com/repos/${username}/${repoName}/languages`);
+    const fetchLanguages = await fetch(`repoInfo.languages_url`);
     const languageData = await fetchLanguages.json();
     //console.log(languageData);
     const languages = [];
