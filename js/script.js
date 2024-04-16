@@ -67,13 +67,11 @@ const repoList = repoUlList.addEventListener("click", function(e) {
 const getRepoInfo = async function(repoName) {
     const req = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await req.json();
-    console.log(repoInfo);
     const fetchLanguages = await fetch(repoInfo.languages_url);
     const languageData = await fetchLanguages.json();
     const languages = [];
     for (let language in languageData) {
         languages.push(language);
-        console.log(languages);
     }
     displayIndividualRepo(repoInfo, languages);
 };
@@ -107,7 +105,6 @@ filterInput.addEventListener("input", function(e) {
     const repos = document.querySelectorAll(".repo");
     
     for (let repo of repos) {
-        console.log(repo);
         const lowerInnerText = repo.innerText.toLowerCase();
         if (lowerInnerText.includes(lowercaseSearch)) {
             repo.classList.remove("hide");
